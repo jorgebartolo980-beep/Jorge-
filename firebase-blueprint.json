@@ -1,0 +1,89 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Perfil de utilizador registado no PetCare 360.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "ID único do utilizador" },
+        "email": { "type": "string", "format": "email", "description": "Endereço de e-mail do utilizador" },
+        "name": { "type": "string", "maxLength": 100, "description": "Nome do tutor" },
+        "role": { "type": "string", "enum": ["user", "admin"], "description": "Papel de autorização do utilizador" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Data de registo" }
+      },
+      "required": ["uid", "email", "role", "createdAt"]
+    },
+    "License": {
+      "title": "License",
+      "description": "Estado e permissões de acesso pago de um utilizador.",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string", "description": "ID do utilizador associado à licença" },
+        "status": {
+          "type": "string",
+          "enum": ["none", "pending", "active", "expired", "revoked"],
+          "description": "Estado da licença de acesso pago"
+        },
+        "planType": {
+          "type": "string",
+          "enum": ["mensal", "anual", "vitalicio"],
+          "description": "Tipo de plano adquirido"
+        },
+        "orderReference": { "type": "string", "description": "Referência única da encomenda" },
+        "transactionId": { "type": "string", "description": "Identificador da transação do fornecedor de pagamentos" },
+        "activatedAt": { "type": "string", "format": "date-time", "description": "Data de confirmação e ativação do acesso" },
+        "expiresAt": { "type": "string", "format": "date-time", "description": "Data de término da licença" },
+        "updatedAt": { "type": "string", "format": "date-time", "description": "Data da última atualização" }
+      },
+      "required": ["userId", "status"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Registo de encomenda iniciada na loja PetCare 360.",
+      "type": "object",
+      "properties": {
+        "orderReference": { "type": "string", "description": "Referência única da encomenda" },
+        "userId": { "type": "string", "description": "ID do utilizador comprador" },
+        "userEmail": { "type": "string", "format": "email", "description": "E-mail do comprador" },
+        "planType": { "type": "string", "enum": ["mensal", "anual", "vitalicio"], "description": "Plano pretendido" },
+        "amountEuro": { "type": "number", "description": "Valor total em euros" },
+        "paymentMethod": { "type": "string", "enum": ["cartao", "mbway", "multibanco"], "description": "Método de pagamento" },
+        "status": { "type": "string", "enum": ["pending", "completed", "failed", "cancelled"], "description": "Estado da encomenda" },
+        "createdAt": { "type": "string", "format": "date-time", "description": "Data de criação" }
+      },
+      "required": ["orderReference", "userId", "planType", "amountEuro", "status", "createdAt"]
+    },
+    "PaymentWebhookLog": {
+      "title": "PaymentWebhookLog",
+      "description": "Auditoria de notificações recebidas pelo fornecedor de pagamentos.",
+      "type": "object",
+      "properties": {
+        "eventId": { "type": "string", "description": "ID do evento gerado pelo gateway de pagamento" },
+        "orderReference": { "type": "string", "description": "Referência da encomenda" },
+        "eventType": { "type": "string", "description": "Tipo de evento de pagamento" },
+        "verified": { "type": "boolean", "description": "Se a assinatura HMAC foi validada" },
+        "processedAt": { "type": "string", "format": "date-time", "description": "Data de processamento" },
+        "payloadHash": { "type": "string", "description": "Hash SHA-256 do payload para idempotência" }
+      },
+      "required": ["eventId", "orderReference", "eventType", "verified", "processedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Perfis privados de utilizadores do PetCare 360"
+    },
+    "/licenses/{userId}": {
+      "schema": "License",
+      "description": "Licenças de acesso pago controladas exclusivamente pelo servidor"
+    },
+    "/orders/{orderId}": {
+      "schema": "Order",
+      "description": "Histórico de encomendas do utilizador"
+    },
+    "/webhook_logs/{logId}": {
+      "schema": "PaymentWebhookLog",
+      "description": "Auditoria de segurança de transações e webhooks"
+    }
+  }
+}

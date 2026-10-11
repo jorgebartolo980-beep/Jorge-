@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#154734" />
+      <stop offset="100%" stop-color="#0B2B1F" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D7A58" />
+      <stop offset="100%" stop-color="#154734" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#52B788" />
+      <stop offset="100%" stop-color="#74C69D" />
+    </linearGradient>
+    <filter id="dropShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Background Circle with subtle border -->
+  <rect width="512" height="512" rx="112" fill="url(#bgGrad)" />
+  <rect x="12" y="12" width="488" height="488" rx="100" fill="none" stroke="#52B788" stroke-width="4" stroke-opacity="0.3" />
+
+  <!-- Protective Shield -->
+  <path d="M256 70 C340 70 395 105 400 195 C400 310 295 390 256 425 C217 390 112 310 112 195 C117 105 172 70 256 70 Z" 
+        fill="url(#shieldGrad)" 
+        stroke="#52B788" 
+        stroke-width="8" 
+        filter="url(#dropShadow)" />
+
+  <!-- Heart Contour Inside Shield -->
+  <path d="M256 360 C240 340 165 285 165 210 C165 170 195 145 230 145 C243 145 251 152 256 160 C261 152 269 145 282 145 C317 145 347 170 347 210 C347 285 272 340 256 360 Z" 
+        fill="#FAF9F5" 
+        fill-opacity="0.12" 
+        stroke="#FAF9F5" 
+        stroke-width="4" 
+        stroke-dasharray="6,4" />
+
+  <!-- Stylized Paw: Main Pad (Heart-shaped bottom) -->
+  <path d="M256 310 C220 310 200 275 215 240 C225 218 245 210 256 218 C267 210 287 218 297 240 C312 275 292 310 256 310 Z" 
+        fill="#FAF9F5" 
+        filter="url(#dropShadow)" />
+
+  <!-- 4 Toe Pads (Arranged harmoniously around top) -->
+  <!-- Left Outer -->
+  <ellipse cx="188" cy="210" rx="19" ry="26" transform="rotate(-30 188 210)" fill="url(#accentGrad)" />
+  <!-- Left Inner -->
+  <ellipse cx="228" cy="172" rx="20" ry="28" transform="rotate(-12 228 172)" fill="url(#accentGrad)" />
+  <!-- Right Inner -->
+  <ellipse cx="284" cy="172" rx="20" ry="28" transform="rotate(12 284 172)" fill="url(#accentGrad)" />
+  <!-- Right Outer -->
+  <ellipse cx="324" cy="210" rx="19" ry="26" transform="rotate(30 324 210)" fill="url(#accentGrad)" />
+
+  <!-- Sparkle Plus Top Right -->
+  <path d="M375 110 L381 125 L396 131 L381 137 L375 152 L369 137 L354 131 L369 125 Z" fill="#F4A261" />
+  <circle cx="140" cy="130" r="4" fill="#F4A261" />
+</svg>

@@ -1,0 +1,59 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Default deny catch-all
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        request.auth.token.email == "jorgebartolo980@gmail.com" ||
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid))
+      );
+    }
+
+    // User profiles: each user can only read their own data; only admins can list
+    match /users/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow create: if isOwner(userId) && request.resource.data.role == "user";
+      allow update: if isOwner(userId) &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['name']) &&
+        request.resource.data.role == resource.data.role; // Block self-elevation to admin
+      allow delete: if isAdmin();
+    }
+
+    // Licenses: CRITICAL - Users can only READ their own license.
+    // Writes are completely FORBIDDEN to regular clients. Only backend/admin can update.
+    match /licenses/{userId} {
+      allow get: if isOwner(userId) || isAdmin();
+      allow list: if isAdmin();
+      allow write: if isAdmin(); // Clients cannot alter license status, expiry, or order references!
+    }
+
+    // Orders: Users can create pending orders for themselves; only admin or server can update status
+    match /orders/{orderId} {
+      allow get: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow list: if isSignedIn() && (resource.data.userId == request.auth.uid || isAdmin());
+      allow create: if isSignedIn() &&
+        request.resource.data.userId == request.auth.uid &&
+        request.resource.data.status == "pending";
+      allow update, delete: if isAdmin();
+    }
+
+    // Webhook Logs: Strictly private for server audit and admins
+    match /webhook_logs/{logId} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

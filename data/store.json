@@ -1,0 +1,117 @@
+{
+  "users": [
+    {
+      "uid": "usr_admin_01",
+      "email": "jorgebartolo980@gmail.com",
+      "name": "Administrador PetCare",
+      "passwordHash": "6e050e9647d01ded2f59cef8a77644061fb655049f77278a86c04b490a68e14bc4b34e9abde001eddd734c6303e07c27b000f9dd462fdd3efce091cfe9813b2f",
+      "salt": "ba97109063007ef7642ed166ef9023f2",
+      "role": "admin",
+      "createdAt": "2026-10-11T06:05:42.088Z"
+    },
+    {
+      "uid": "usr_demo_02",
+      "email": "cliente@petcare360.pt",
+      "name": "Tutor de Exemplo",
+      "passwordHash": "64cf5fd2f09f530486c8cfd548295118b6eb2f2830ff3677129b4a80a3b5b6164b6350a0cec908429cdfa98883ce4c2acdd4deae21d6411756175e079074a680",
+      "salt": "9958d71b0fd85b4a8173488fd07b674e",
+      "role": "user",
+      "createdAt": "2026-10-11T06:05:42.096Z"
+    }
+  ],
+  "licenses": [
+    {
+      "userId": "usr_admin_01",
+      "userEmail": "jorgebartolo980@gmail.com",
+      "status": "active",
+      "planType": "vitalicio",
+      "activatedAt": "2026-10-11T06:05:42.096Z",
+      "updatedAt": "2026-10-11T06:05:42.096Z",
+      "notes": "Licença SuperAdmin Oficial"
+    },
+    {
+      "userId": "usr_demo_02",
+      "userEmail": "cliente@petcare360.pt",
+      "status": "active",
+      "updatedAt": "2026-10-11T06:18:28.201Z",
+      "notes": "Conta Nova - Sem Licença Ativa",
+      "activatedAt": "2026-10-11T06:18:28.201Z",
+      "planType": "mensal",
+      "orderReference": "ORD-TEST-MV3FMKFD",
+      "expiresAt": "2026-11-10T06:18:28.201Z"
+    }
+  ],
+  "orders": [
+    {
+      "orderReference": "ORD-TEST-MV3FMKFD",
+      "userId": "usr_demo_02",
+      "userEmail": "cliente@petcare360.pt",
+      "planType": "mensal",
+      "amountEuro": 3.99,
+      "paymentMethod": "mbway",
+      "status": "completed",
+      "createdAt": "2026-10-11T06:18:28.201Z",
+      "completedAt": "2026-10-11T06:18:28.201Z",
+      "transactionId": "tx_sandbox_1791699508201"
+    }
+  ],
+  "webhookLogs": [
+    {
+      "eventId": "evt_test_1791699508201_3gjl",
+      "orderReference": "ORD-TEST-MV3FMKFD",
+      "eventType": "payment.succeeded",
+      "status": "completed",
+      "verified": true,
+      "receivedAt": "2026-10-11T06:18:28.201Z",
+      "payloadHash": "30a27140d7f206b805cb57cd635ca84cfc5630d94cbba911d26e6ebcf72201c4",
+      "notes": "Simulação de teste: purchase_succeeded"
+    }
+  ],
+  "processedEventIds": [
+    "evt_test_1791699508201_3gjl"
+  ],
+  "adminNotifications": [
+    {
+      "id": "notif_mv3fmkfd_dq55",
+      "eventType": "payment.succeeded",
+      "subject": "[PetCare 360] Nova Compra / Pagamento Confirmado: PetCare Plus Mensal (3,99 € / mês) — ORD-TEST-MV3FMKFD",
+      "recipient": "jorgebartolo980@gmail.com",
+      "transactionId": "tx_sandbox_1791699508201",
+      "orderReference": "ORD-TEST-MV3FMKFD",
+      "planType": "mensal",
+      "amountEuro": 3.99,
+      "currency": "EUR",
+      "status": "completed",
+      "subscriptionRef": "ORD-TEST-MV3FMKFD",
+      "customerId": "usr_demo_02",
+      "customerEmail": "cliente@petcare360.pt",
+      "paymentMethod": "mbway",
+      "timestamp": "2026-10-11T06:18:28.201Z",
+      "deliveryStatus": "simulated",
+      "deliveryMethod": "logged",
+      "emailHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>[PetCare 360] Nova Compra / Pagamento Confirmado: PetCare Plus Mensal (3,99 € / mês) — ORD-TEST-MV3FMKFD</title>\n</head>\n<body style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 24px; color: #1e293b;\">\n  <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0;\">\n    <!-- Header -->\n    <tr>\n      <td style=\"background: linear-gradient(135deg, #154734 0%, #0f3426 100%); padding: 32px 28px; text-align: left;\">\n        <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n          <tr>\n            <td>\n              <span style=\"display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #86efac; background-color: rgba(21, 71, 52, 0.6); padding: 4px 10px; border-radius: 9999px; border: 1px solid rgba(134, 239, 172, 0.3);\">\n                PetCare 360 • Notificação Administrativa\n              </span>\n              <h1 style=\"color: #ffffff; font-size: 22px; font-weight: 800; margin: 12px 0 4px 0; letter-spacing: -0.02em;\">\n                Nova Compra / Pagamento Confirmado\n              </h1>\n              <p style=\"color: #cbd5e1; font-size: 13px; margin: 0;\">\n                Registo bancário confirmado no servidor da aplicação.\n              </p>\n            </td>\n          </tr>\n        </table>\n      </td>\n    </tr>\n\n    <!-- Status Strip -->\n    <tr>\n      <td style=\"padding: 16px 28px; background-color: #f1f5f9; border-bottom: 1px solid #e2e8f0;\">\n        <span style=\"display: inline-block; background-color: #154734; color: #ffffff; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 6px; letter-spacing: 0.05em;\">\n          PAGAMENTO APROVADO\n        </span>\n        <span style=\"font-size: 12px; color: #64748b; margin-left: 12px;\">\n          domingo, 11 de outubro de 2026 às 07:18:28\n        </span>\n      </td>\n    </tr>\n\n    <!-- Body / Data Table -->\n    <tr>\n      <td style=\"padding: 28px;\">\n        <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"font-size: 13px; border-collapse: collapse;\">\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; width: 45%; font-weight: 600;\">Identificador da Transação:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-family: monospace; font-weight: 700; text-align: right;\">tx_sandbox_1791699508201</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Data e Hora:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-weight: 600; text-align: right;\">domingo, 11 de outubro de 2026 às 07:18:28</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Montante e Moeda:</td>\n            <td style=\"padding: 10px 0; color: #154734; font-size: 16px; font-weight: 800; text-align: right;\">3.99 EUR</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Plano Adquirido:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-weight: 700; text-align: right;\">PetCare Plus Mensal (3,99 € / mês)</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Estado do Pagamento:</td>\n            <td style=\"padding: 10px 0; font-weight: 700; text-align: right; text-transform: uppercase;\">\n              <span style=\"color: #154734;\">completed</span>\n            </td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Referência da Encomenda:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-family: monospace; font-weight: 700; text-align: right;\">ORD-TEST-MV3FMKFD</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Referência da Subscrição:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-family: monospace; text-align: right;\">ORD-TEST-MV3FMKFD</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Identificador do Cliente:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-family: monospace; text-align: right;\">usr_demo_02</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">E-mail do Cliente:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-weight: 700; text-align: right;\">cliente@petcare360.pt</td>\n          </tr>\n          <tr>\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Método de Pagamento:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-weight: 700; text-align: right; text-transform: uppercase;\">mbway</td>\n          </tr>\n        </table>\n      </td>\n    </tr>\n\n    <!-- Footer -->\n    <tr>\n      <td style=\"background-color: #f8fafc; padding: 20px 28px; border-top: 1px solid #e2e8f0; font-size: 11px; color: #64748b; line-height: 1.5;\">\n        <p style=\"margin: 0 0 6px 0;\">\n          <strong>Destinatário Oficial:</strong> jorgebartolo980@gmail.com (Administração PetCare 360).\n        </p>\n        <p style=\"margin: 0;\">\n          Esta mensagem é enviada exclusivamente pelo backend da plataforma mediante confirmação criptográfica de gateway bancário.\n        </p>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>",
+      "emailText": "=====================================================\nPETCARE 360 — NOTIFICAÇÃO DE PAGAMENTO PARA ADMINISTRADOR\n=====================================================\nEvento: Nova Compra / Pagamento Confirmado\nEstado: COMPLETED\n\nDETALHES DA TRANSAÇÃO:\n- Identificador da Transação: tx_sandbox_1791699508201\n- Data e Hora: domingo, 11 de outubro de 2026 às 07:18:28\n- Montante e Moeda: 3.99 EUR\n- Plano Adquirido: PetCare Plus Mensal (3,99 € / mês)\n- Estado do Pagamento: completed\n- Referência da Encomenda: ORD-TEST-MV3FMKFD\n- Referência da Subscrição: ORD-TEST-MV3FMKFD\n- Identificador do Cliente: usr_demo_02\n- E-mail do Cliente: cliente@petcare360.pt\n- Método de Pagamento: MBWAY\n\nDestinatário Administrativo: jorgebartolo980@gmail.com\nNotificação gerada pelo servidor PetCare 360 (HMAC Authenticated).\n====================================================="
+    },
+    {
+      "id": "notif_mv3fmh0e_r0xg",
+      "eventType": "test",
+      "subject": "[PetCare 360] Simulação / Teste do Sistema de Pagamentos: PetCare Plus Mensal (3,99 € / mês) — ORD-TEST-MV3FMH0C",
+      "recipient": "jorgebartolo980@gmail.com",
+      "transactionId": "tx_test_1791699503772",
+      "orderReference": "ORD-TEST-MV3FMH0C",
+      "planType": "mensal",
+      "amountEuro": 3.99,
+      "currency": "EUR",
+      "status": "confirmado",
+      "subscriptionRef": "ORD-TEST-MV3FMH0C",
+      "customerId": "usr_admin_01",
+      "customerEmail": "jorgebartolo980@gmail.com",
+      "paymentMethod": "mbway",
+      "timestamp": "2026-10-11T06:18:23.772Z",
+      "deliveryStatus": "simulated",
+      "deliveryMethod": "logged",
+      "emailHtml": "<!DOCTYPE html>\n<html>\n<head>\n  <meta charset=\"utf-8\">\n  <title>[PetCare 360] Simulação / Teste do Sistema de Pagamentos: PetCare Plus Mensal (3,99 € / mês) — ORD-TEST-MV3FMH0C</title>\n</head>\n<body style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f8fafc; margin: 0; padding: 24px; color: #1e293b;\">\n  <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"max-width: 600px; margin: 0 auto; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05); border: 1px solid #e2e8f0;\">\n    <!-- Header -->\n    <tr>\n      <td style=\"background: linear-gradient(135deg, #154734 0%, #0f3426 100%); padding: 32px 28px; text-align: left;\">\n        <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\">\n          <tr>\n            <td>\n              <span style=\"display: inline-block; font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #86efac; background-color: rgba(21, 71, 52, 0.6); padding: 4px 10px; border-radius: 9999px; border: 1px solid rgba(134, 239, 172, 0.3);\">\n                PetCare 360 • Notificação Administrativa\n              </span>\n              <h1 style=\"color: #ffffff; font-size: 22px; font-weight: 800; margin: 12px 0 4px 0; letter-spacing: -0.02em;\">\n                Simulação / Teste do Sistema de Pagamentos\n              </h1>\n              <p style=\"color: #cbd5e1; font-size: 13px; margin: 0;\">\n                Registo bancário confirmado no servidor da aplicação.\n              </p>\n            </td>\n          </tr>\n        </table>\n      </td>\n    </tr>\n\n    <!-- Status Strip -->\n    <tr>\n      <td style=\"padding: 16px 28px; background-color: #f1f5f9; border-bottom: 1px solid #e2e8f0;\">\n        <span style=\"display: inline-block; background-color: #7c3aed; color: #ffffff; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 6px; letter-spacing: 0.05em;\">\n          TESTE ADMINISTRATIVO\n        </span>\n        <span style=\"font-size: 12px; color: #64748b; margin-left: 12px;\">\n          domingo, 11 de outubro de 2026 às 07:18:23\n        </span>\n      </td>\n    </tr>\n\n    <!-- Body / Data Table -->\n    <tr>\n      <td style=\"padding: 28px;\">\n        <table width=\"100%\" border=\"0\" cellspacing=\"0\" cellpadding=\"0\" style=\"font-size: 13px; border-collapse: collapse;\">\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; width: 45%; font-weight: 600;\">Identificador da Transação:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-family: monospace; font-weight: 700; text-align: right;\">tx_test_1791699503772</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Data e Hora:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-weight: 600; text-align: right;\">domingo, 11 de outubro de 2026 às 07:18:23</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Montante e Moeda:</td>\n            <td style=\"padding: 10px 0; color: #154734; font-size: 16px; font-weight: 800; text-align: right;\">3.99 EUR</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Plano Adquirido:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-weight: 700; text-align: right;\">PetCare Plus Mensal (3,99 € / mês)</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Estado do Pagamento:</td>\n            <td style=\"padding: 10px 0; font-weight: 700; text-align: right; text-transform: uppercase;\">\n              <span style=\"color: #7c3aed;\">confirmado</span>\n            </td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Referência da Encomenda:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-family: monospace; font-weight: 700; text-align: right;\">ORD-TEST-MV3FMH0C</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Referência da Subscrição:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-family: monospace; text-align: right;\">ORD-TEST-MV3FMH0C</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Identificador do Cliente:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-family: monospace; text-align: right;\">usr_admin_01</td>\n          </tr>\n          <tr style=\"border-bottom: 1px solid #f1f5f9;\">\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">E-mail do Cliente:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-weight: 700; text-align: right;\">jorgebartolo980@gmail.com</td>\n          </tr>\n          <tr>\n            <td style=\"padding: 10px 0; color: #64748b; font-weight: 600;\">Método de Pagamento:</td>\n            <td style=\"padding: 10px 0; color: #0f172a; font-weight: 700; text-align: right; text-transform: uppercase;\">mbway</td>\n          </tr>\n        </table>\n      </td>\n    </tr>\n\n    <!-- Footer -->\n    <tr>\n      <td style=\"background-color: #f8fafc; padding: 20px 28px; border-top: 1px solid #e2e8f0; font-size: 11px; color: #64748b; line-height: 1.5;\">\n        <p style=\"margin: 0 0 6px 0;\">\n          <strong>Destinatário Oficial:</strong> jorgebartolo980@gmail.com (Administração PetCare 360).\n        </p>\n        <p style=\"margin: 0;\">\n          Esta mensagem é enviada exclusivamente pelo backend da plataforma mediante confirmação criptográfica de gateway bancário.\n        </p>\n      </td>\n    </tr>\n  </table>\n</body>\n</html>",
+      "emailText": "=====================================================\nPETCARE 360 — NOTIFICAÇÃO DE PAGAMENTO PARA ADMINISTRADOR\n=====================================================\nEvento: Simulação / Teste do Sistema de Pagamentos\nEstado: CONFIRMADO\n\nDETALHES DA TRANSAÇÃO:\n- Identificador da Transação: tx_test_1791699503772\n- Data e Hora: domingo, 11 de outubro de 2026 às 07:18:23\n- Montante e Moeda: 3.99 EUR\n- Plano Adquirido: PetCare Plus Mensal (3,99 € / mês)\n- Estado do Pagamento: confirmado\n- Referência da Encomenda: ORD-TEST-MV3FMH0C\n- Referência da Subscrição: ORD-TEST-MV3FMH0C\n- Identificador do Cliente: usr_admin_01\n- E-mail do Cliente: jorgebartolo980@gmail.com\n- Método de Pagamento: MBWAY\n\nDestinatário Administrativo: jorgebartolo980@gmail.com\nNotificação gerada pelo servidor PetCare 360 (HMAC Authenticated).\n====================================================="
+    }
+  ]
+}
